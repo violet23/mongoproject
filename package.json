@@ -1,0 +1,27 @@
+{
+  "name": "mongoproject",
+  "version": "1.0.0",
+  "description": "genome API",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/violet23/mongoproject"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "topic",
+    "try"
+  ],
+  "author": "Aishan Liu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.4",
+    "mongoose": "^5.5.7"
+  }
+}
