@@ -1,19 +1,54 @@
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 3000;
-  mongoose = require('mongoose'),
-  Task = require('./api/models/testModel'),
-  bodyParser = require('body-parser');
+const express = require('express');
+ server = express();
+//get the configuration
+const Config = require(__dirname+'/config.json');
 
-  mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://localhost/test');
+//adding body-parser
+const bodyParser = require('body-parser');
 
-  app.use(bodyParser.urlencoded({extended:true}));
-  app.use(bodyParser.json());
+//adding mongoose for mongodb
+const mongoose = require('mongoose');
 
-  var routes = require('./api/routes/testRoutes');
-  routes(app);
+//handle deprication warnings  ????
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
-app.listen(port);
+//connecting to mongodb
+mongoose.connect('mongodb://localhost/'+Config.mongodbName, {useNewUrlParser: true});
+mongoose.Promise = global.Promise;
 
-console.log('Test RESTful API server started on: ' + port);
+//adding routes
+const reviewSampleRoutes = require('./api/routes/testRoutes');
+
+//adding static resources
+server.use('/images',express.static(Config.datasetPath));
+
+//adding the body-parser to handle request bodies
+server.use(bodyParser.urlencoded({extended:false}));
+server.use(bodyParser.json());
+
+//specific routes
+server.use('/reviewSamples', reviewSampleRoutes);
+
+//handle default route error
+server.use((req,res,next)=> {
+    const error = new Error('Not Found');
+    error.status - 404;
+    next(error);
+})
+
+//trigger above error
+server.use((error,req,res,next)=>{
+  res.status(error.status || 500);
+  res.json({
+      error : {
+          message : error.message
+      }
+  });
+});
+
+//listen to port
+server.listen(Config.port);
+console.log('listening on port '+ Config.port);
+
