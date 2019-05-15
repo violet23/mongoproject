@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost/'+Config.mongodbName, {useNewUrlParser: tr
 mongoose.Promise = global.Promise;
 
 //adding routes
-const reviewSampleRoutes = require('./api/routes/testRoutes');
+const reviewSampleRoutes = require('./routes/testRoutes');
 
 //adding static resources
 server.use('/images',express.static(Config.datasetPath));

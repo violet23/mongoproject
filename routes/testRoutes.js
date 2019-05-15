@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Config = require('../config.json');
 
 //get the sample model
-const Sample = require('./api/models/testModel');
+const Sample = require('../models/testModel');
 const getURL = Config.privateEndpoint;
 const imageURL = Config.imageURL;
 
