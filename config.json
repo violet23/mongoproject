@@ -1,8 +1,7 @@
 {
     "monogodbName": "samples",
     "datasetPath" : "/Users/aishanliu/mongoproject/mongoproject/string",
-    "Endpoint" : "http://localhost:8080/reviewSamples/",
+    "privateEndpoint" : "http://localhost:8080/testRoutes/",
     "imageURL" : "http://localhost:8080/images/",
-    "port" : 8080,
-    "JWT_KEY" : "abf$8$6q"
+    "port" : 8080
 }

@@ -22,9 +22,8 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "mongodb": "^3.2.4",
-    "mongoose": "^5.5.8"
-  },
-  "devDependencies": {
+    "mongoose": "^5.5.8",
     "nodemon": "^1.19.0"
-  }
+  },
+  "devDependencies": {}
 }

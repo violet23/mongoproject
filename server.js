@@ -1,5 +1,5 @@
 const express = require('express');
- server = express();
+const server = express();
 //get the configuration
 const Config = require(__dirname+'/config.json');
 

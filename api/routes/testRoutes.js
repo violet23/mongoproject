@@ -3,11 +3,11 @@ const router = express.Router();
 const mongoose = require('mongoose');
 
 //load the configuration 
-const Config = require('./config.json');
+const Config = require('../config.json');
 
 //get the sample model
-const Sample = require('../models/testModel');
-const getURL = Config.Endpoint;
+const Sample = require('./api/models/testModel');
+const getURL = Config.privateEndpoint;
 const imageURL = Config.imageURL;
 
 //GET all samples
@@ -28,7 +28,7 @@ router.get('/', (req,res,next) => {
           table_data: doc.table_data,
           request:{
             type : 'GET',
-            URL: getURL + doc._id
+            url: getURL + doc._id
           }
         }
       }),
