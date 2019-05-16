@@ -1,29 +1,37 @@
 {
-  "name": "mongoproject",
+  "name": "restnode",
   "version": "1.0.0",
-  "description": "genome API",
-  "main": "server.js",
+  "description": "A simple implementation of REST API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/violet23/mongoproject"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "url": "git+https://github.com/PrashantKuntala/restNode.git"
   },
   "keywords": [
-    "API",
-    "topic",
-    "try"
+    "REST",
+    "Express",
+    "Node",
+    "MongoDB"
   ],
-  "author": "Aishan Liu",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "express": "^4.16.4",
-    "mongodb": "^3.2.4",
-    "mongoose": "^5.5.8",
-    "nodemon": "^1.19.0"
+  "author": "Prashant Kumar Kuntala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PrashantKuntala/restNode/issues"
   },
-  "devDependencies": {}
+  "homepage": "https://github.com/PrashantKuntala/restNode#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.3.12",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.6"
+  }
 }
