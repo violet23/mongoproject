@@ -11,7 +11,7 @@ const Config = require(__dirname + '/config.json');
 const bodyParser = require('body-parser');
 
 // adding cors header for Access-Control-Allow-Origin
-//const cors = require('cors');
+const cors = require('cors');
 
 // adding helmet for security
 //const helmet = require('helmet');
@@ -30,11 +30,11 @@ mongoose.connect('mongodb://localhost/'+Config.monogodbName,{ useNewUrlParser: t
 mongoose.Promise = global.Promise;
 
 // enable cors
-//app.use(cors());
+app.use(cors());
 
 // add routes
-const reviewSampleRoutes = require('./routes/reviewSamples');
-
+const reviewProteinRoutes = require('./routes/reviewProteins');
+const reviewTopicRoutes = require('./routes/reviewTopics');
 // adding static resources 
 app.use('/images',express.static(Config.datasetPath));
 
@@ -49,8 +49,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // let express use the specific routes
-app.use('/reviewSamples',reviewSampleRoutes);
-
+app.use('/reviewProteins',reviewProteinRoutes);
+app.use('/reviewTopics',reviewTopicRoutes);
 // handling default route errors
 app.use((req,res,next) => {
     const error = new Error('Not Found'); // adding your custom error message here

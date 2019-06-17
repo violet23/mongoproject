@@ -1,7 +1,8 @@
 {
     "monogodbName": "samples",
-    "datasetPath" : "/Users/aishanliu/mongoproject/mongoproject/string",
-    "privateEndpoint" : "http://localhost:8080/reviewSamples/",
+    "datasetPath" : "/Users/aishanliu/mongoproject",
+    "privateEndpoint" : "http://localhost:8080/reviewTopics/",
+    "privateEndpoint0" : "http://localhost:8080/reviewProteins/",
     "imageURL" : "http://localhost:8080/images/",
     "port" : 8080
 
