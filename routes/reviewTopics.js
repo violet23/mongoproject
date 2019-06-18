@@ -25,12 +25,10 @@ router.get('/', (req, res, next) =>{
             topics : docs.map(doc => {
             
             // appending the server prefix to each image
-            /*let newbindingRegionProfiles= doc.bindingRegionProfiles.map(item => {
+            /*let newtopicStatisticsTable= doc.topicStatisticsTable.map(item => {
                 return {
-                  topicTable: imageURL + item.topicTable,
-                  stringNet : imageURL + item.stringNet,
-                  subsector : imageURL + item.subsector,
-                  subsector_his : imageURL + item.subsector_his,
+                  Reb1: item.Reb1,
+                  Rvb1 : item.Rvb1,
                }
               })*/
                          
@@ -39,9 +37,10 @@ router.get('/', (req, res, next) =>{
                 topicID : doc.topicID,
                 proteinList: doc.proteinList,
                 topicStatisticsTable: doc.topicStatisticsTable,
+                //topicTagCountsInSubsectors: doc.topicTagCountsInSubsectors
                 
               }
-            }),
+            })
           }
         res.status(200).json(response);        
     }).catch(err => {
@@ -71,9 +70,8 @@ router.get('/:topicID',  (req, res, next) =>{
                         topicID : doc.topicID,
                         proteinList: doc.proteinList,
                         topicStatisticsTable: doc.topicStatisticsTable,
-                          // doc: doc
                       }
-                  }) ,
+                  }) 
           });
       }
       // send the 404 message
