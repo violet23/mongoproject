@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 
 const proteinSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    isPublic: {type: Boolean,required: true},
     proteinName : {type:String,required:true},
-    topicBelong: {type:String, required: true},
+    sgdID : {type:String,required:true},
+    definition: {type:String, required: true},
+    topicList: {type:String, required: true},
+    proteinStatisticsTable:[{t: String}],
   });
 module.exports = mongoose.model('Protein',proteinSchema);
