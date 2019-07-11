@@ -24,22 +24,43 @@ router.get('/', (req, res, next) =>{
             count : docs.length,
             proteins : docs.map(doc => {
             
-            // appending the server prefix to each image
-            /*let newtopicStatisticsTable= doc.topicStatisticsTable.map(item => {
-                return {
-                  Reb1: item.Reb1,
-                  Rvb1 : item.Rvb1,
+              let newtesProfiles = doc.tesProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
                }
-              })*/
+              });
+              let newtssProfiles = doc.tssProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              });
+              
+              let newbindingRegionProfiles = doc.bindingRegionProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              })
                          
               return {
                 _id : doc._id,
                 proteinName : doc.proteinName,
-                sgdID : doc.sgdID,
-                topicList: doc.topicList,
-                definition: doc.definition,
+                definition : doc.definition,
+                tesProfiles: newtesProfiles,
+                bindingRegionProfiles: newbindingRegionProfiles,
                 proteinStatisticsTable: doc.proteinStatisticsTable,
-                //topicTagCountsInSubsectors: doc.topicTagCountsInSubsectors
+                alias :doc.alias,
+                topicList: doc.topicList,
+                tssProfiles: newtssProfiles
+
                 
               }
             })
@@ -67,18 +88,48 @@ router.get('/:proteinName',  (req, res, next) =>{
       if (docs.length > 0){
           res.status(200).json({
             protein : docs.map(doc => {
-                           
-                      return {
-                        _id : doc._id,
-                        proteinName : doc.proteinName,
-                        sgdID : doc.sgdID,
-                        topicList: doc.topicList,
-                        definition: doc.definition,
-                        proteinStatisticsTable: doc.proteinStatisticsTable,
-                      }
-                  }) 
-          });
-      }
+                        
+              let newtesProfiles = doc.tesProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              });
+              let newtssProfiles = doc.tssProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              });
+              
+              let newbindingRegionProfiles = doc.bindingRegionProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              })
+                         
+              return {
+                _id : doc._id,
+                proteinName : doc.proteinName,
+                definition : doc.definition,
+                tesProfiles: newtesProfiles,
+                bindingRegionProfiles: newbindingRegionProfiles,
+                proteinStatisticsTable: doc.proteinStatisticsTable,
+                alias :doc.alias,
+                topicList: doc.topicList,
+                tssProfiles: newtssProfiles
+
+                
+              }
+          })
+      })}
       // send the 404 message
       else{
           res.status(404).json({
