@@ -25,21 +25,54 @@ router.get('/', (req, res, next) =>{
             topics : docs.map(doc => {
             
             // appending the server prefix to each image
-            /*let newtopicStatisticsTable= doc.topicStatisticsTable.map(item => {
-                return {
-                  Reb1: item.Reb1,
-                  Rvb1 : item.Rvb1,
+
+            let newtesProfiles = doc.tesProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
                }
-              })*/
-                         
-              return {
-                _id : doc._id,
-                topicID : doc.topicID,
-                proteinList: doc.proteinList,
-                topicStatisticsTable: doc.topicStatisticsTable,
-                //topicTagCountsInSubsectors: doc.topicTagCountsInSubsectors
-                
-              }
+              });
+              let newtssProfiles = doc.tssProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              });
+              
+              let newbindingRegionProfiles = doc.bindingRegionProfiles.map(item => {
+                return{
+                    heatmap3category: item.heatmap3category,
+                    averagePlot: item.averagePlot,
+                    heatmap : item.heatmap,
+                    heatmap3categoryBar: item.heatmap3categoryBar
+               }
+              })
+                       
+                  return {
+                    _id : doc._id,
+                    topicID : doc.topicID,
+                    wigFile : doc.wigFile,
+                    topicStatisticsTable: doc.topicStatisticsTable,
+                    tesProfiles : newtesProfiles,
+                    topicSubsectorPercentCommonGenesForReferenceSubsectorSpecific :doc.topicSubsectorPercentCommonGenesForReferenceSubsectorSpecific,
+                    topicSubsectorNoCommonGenesSubsectorSpecific : doc.topicSubsectorNoCommonGenesSubsectorSpecific,
+                    topicTagCountsInSubsectors :doc.topicTagCountsInSubsectors,
+                    topicSubsectorPercentCommonGenesForReference :doc.topicSubsectorPercentCommonGenesForReference,
+                    geneList :doc.geneList, 
+                    bindingRegionProfiles : newbindingRegionProfiles,
+                    subsectorPicture : doc.subsectorPicture,
+                    proteinList : doc.proteinList,
+                    topicSubsectorSignificanceSubsectorSpecific : doc.topicSubsectorSignificanceSubsectorSpecific,
+                    topicSubsectorSignificance : doc.topicSubsectorSignificance,
+                    topicSubsectorNoCommonGenes : doc.topicSubsectorNoCommonGenes,
+                    topicSubsectorPercentCommonGenesForTopics : doc.topicSubsectorPercentCommonGenesForTopics,
+                    tssProfiles : newtssProfiles,
+                    motif: doc.motif
+                  }
             })
           }
         res.status(200).json(response);        
@@ -64,12 +97,52 @@ router.get('/:topicID',  (req, res, next) =>{
       if (docs.length > 0){
           res.status(200).json({
               topic : docs.map(doc => {
+                let newtesProfiles = doc.tesProfiles.map(item => {
+                    return{
+                        heatmap3category: item.heatmap3category,
+                        averagePlot: item.averagePlot,
+                        heatmap : item.heatmap,
+                        heatmap3categoryBar: item.heatmap3categoryBar
+                   }
+                  });
+                  let newtssProfiles = doc.tssProfiles.map(item => {
+                    return{
+                        heatmap3category: item.heatmap3category,
+                        averagePlot: item.averagePlot,
+                        heatmap : item.heatmap,
+                        heatmap3categoryBar: item.heatmap3categoryBar
+                   }
+                  });
+                  
+                  let newbindingRegionProfiles = doc.bindingRegionProfiles.map(item => {
+                    return{
+                        heatmap3category: item.heatmap3category,
+                        averagePlot: item.averagePlot,
+                        heatmap : item.heatmap,
+                        heatmap3categoryBar: item.heatmap3categoryBar
+                   }
+                  })
                            
                       return {
                         _id : doc._id,
                         topicID : doc.topicID,
-                        proteinList: doc.proteinList,
+                        wigFile : doc.wigFile,
                         topicStatisticsTable: doc.topicStatisticsTable,
+                        tesProfiles : newtesProfiles,
+                        topicSubsectorPercentCommonGenesForReferenceSubsectorSpecific :doc.topicSubsectorPercentCommonGenesForReferenceSubsectorSpecific,
+                        topicSubsectorNoCommonGenesSubsectorSpecific : doc.topicSubsectorNoCommonGenesSubsectorSpecific,
+                        topicTagCountsInSubsectors :doc.topicTagCountsInSubsectors,
+                        topicSubsectorPercentCommonGenesForReference :doc.topicSubsectorPercentCommonGenesForReference,
+                        geneList :doc.geneList, 
+                        bindingRegionProfiles : newbindingRegionProfiles,
+                        subsectorPicture : doc.subsectorPicture,
+                        proteinList : doc.proteinList,
+                        topicSubsectorSignificanceSubsectorSpecific : doc.topicSubsectorSignificanceSubsectorSpecific,
+                        topicSubsectorSignificance : doc.topicSubsectorSignificance,
+                        topicSubsectorNoCommonGenes : doc.topicSubsectorNoCommonGenes,
+                        topicSubsectorPercentCommonGenesForTopics : doc.topicSubsectorPercentCommonGenesForTopics,
+                        tssProfiles : newtssProfiles,
+                        motif: doc.motif
                       }
                   }) 
           });

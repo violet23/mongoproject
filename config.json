@@ -3,7 +3,7 @@
     "datasetPath" : "/Users/aishanliu/mongoproject",
     "privateEndpoint" : "http://localhost:8080/reviewTopics/",
     "privateEndpoint0" : "http://localhost:8080/reviewProteins/",
-    "imageURL" : "http://localhost:8080/images/",
+    "imageURL" : "http://localhost:8080/",
     "port" : 8080
 
 }

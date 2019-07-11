@@ -36,7 +36,7 @@ app.use(cors());
 const reviewProteinRoutes = require('./routes/reviewProteins');
 const reviewTopicRoutes = require('./routes/reviewTopics');
 // adding static resources 
-app.use('/images',express.static(Config.datasetPath));
+app.use('/',express.static(Config.datasetPath));
 
 // adding helmet
 //app.use(helmet());
