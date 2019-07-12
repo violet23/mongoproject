@@ -29,17 +29,17 @@ const topicSchema = mongoose.Schema({
     topicSubsectorSignificance : {type:String, required: true},
     topicSubsectorNoCommonGenes : {type:String, required: true},
     topicSubsectorPercentCommonGenesForTopics : {type:String, required: true},
+    topicSubsectorPercentCommonGenesForTopicsSubsectorSpecific : {type:String, required: true},
     tssProfiles : [{ 
       heatmap3category : [{ layer : String}],
       averagePlot : [{ layer : String}],
       heatmap : [{ layer : String}],
       heatmap3categoryBar:String,
     }],
-    motif :
-      [{
-        "1" :{layer : String}
-      }]
-    
+    motif : [{"1" :{layer : String}}],
+    topicSubsectorResults:[{type:String, required: true}],
+    topicSubsectorResultsSubsectorSpecific : [{type:String, required: true}],
+    neighborTopicsPlot: [{ layer : String}],
 
   });
 module.exports = mongoose.model('Topic',topicSchema);

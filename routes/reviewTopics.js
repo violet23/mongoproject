@@ -70,8 +70,12 @@ router.get('/', (req, res, next) =>{
                     topicSubsectorSignificance : doc.topicSubsectorSignificance,
                     topicSubsectorNoCommonGenes : doc.topicSubsectorNoCommonGenes,
                     topicSubsectorPercentCommonGenesForTopics : doc.topicSubsectorPercentCommonGenesForTopics,
+                    topicSubsectorPercentCommonGenesForTopicsSubsectorSpecific: doc.topicSubsectorPercentCommonGenesForTopicsSubsectorSpecific,
                     tssProfiles : newtssProfiles,
-                    motif: doc.motif
+                    motif: doc.motif,
+                    topicSubsectorResults : doc.topicSubsectorResults,
+                    topicSubsectorResultsSubsectorSpecific : doc.topicSubsectorResultsSubsectorSpecific,
+                    neighborTopicsPlot: doc.neighborTopicsPlot
                   }
             })
           }
@@ -141,8 +145,12 @@ router.get('/:topicID',  (req, res, next) =>{
                         topicSubsectorSignificance : doc.topicSubsectorSignificance,
                         topicSubsectorNoCommonGenes : doc.topicSubsectorNoCommonGenes,
                         topicSubsectorPercentCommonGenesForTopics : doc.topicSubsectorPercentCommonGenesForTopics,
+                        topicSubsectorPercentCommonGenesForTopicsSubsectorSpecific: doc.topicSubsectorPercentCommonGenesForTopicsSubsectorSpecific,
                         tssProfiles : newtssProfiles,
-                        motif: doc.motif
+                        motif: doc.motif,
+                        topicSubsectorResults : doc.topicSubsectorResults,
+                        topicSubsectorResultsSubsectorSpecific : doc.topicSubsectorResultsSubsectorSpecific,
+                        neighborTopicsPlot: doc.neighborTopicsPlot
                       }
                   }) 
           });
