@@ -1,6 +1,6 @@
 {
     "monogodbName": "samples",
-    "datasetPath" : "/Users/aishanliu/mongoproject",
+    "datasetPath" : "/Users/aishanliu/restart/mongoproject",
     "privateEndpoint" : "http://localhost:8080/reviewTopics/",
     "privateEndpoint0" : "http://localhost:8080/reviewProteins/",
     "imageURL" : "http://localhost:8080/",
