@@ -14,6 +14,7 @@ const topicSchema = mongoose.Schema({
     }],
     topicSubsectorPercentCommonGenesForReferenceSubsectorSpecific :{type:String, required: true},
     topicSubsectorNoCommonGenesSubsectorSpecific : {type:String, required: true},
+    stringImage:{type:String, required: true},
     topicTagCountsInSubsectors : {type:String, required: true},
     topicSubsectorPercentCommonGenesForReference : {type:String, required: true},
     geneList : {type:String, required: true},
